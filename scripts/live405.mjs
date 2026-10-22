@@ -4,7 +4,7 @@
 // (about 2,000 a day, inside TomTom's free 2,500).
 //
 //   TOMTOM_KEY=... node scripts/live405.mjs            writes the405/live.json
-//   TOMTOM_KEY=... node scripts/live405.mjs --check    prints every sample point, to tune the list below
+// Every sample point's reading goes to the log (the Actions run page), to spot points that miss the freeway.
 //
 // Output: {"updated": ISO time, "source": "TomTom", "regions": {"valley": {"ratio": 0.62, "mph": 41, "freeMph": 66, "samples": 3}, ...}}
 // ratio = current speed / free-flow speed, averaged over the stretch (1 = flowing freely, 0.2 = crawling).
@@ -24,7 +24,6 @@ const POINTS = {
 };
 
 const key = process.env.TOMTOM_KEY;
-const check = process.argv.includes("--check");
 if (!key) { console.log("No TOMTOM_KEY set: skipping live traffic."); process.exit(0); }
 
 async function sample([lat, lon]) {
@@ -43,7 +42,7 @@ for (const [region, points] of Object.entries(POINTS)) {
   for (const p of points) {
     try {
       const s = await sample(p);
-      if (check) console.log(region.padEnd(10), p.join(","), JSON.stringify(s));
+      console.log(region.padEnd(10), p.join(","), JSON.stringify(s));
       // freeways only (FRC0, FRC1 at worst), and only readings TomTom is reasonably sure of
       if (!["FRC0", "FRC1"].includes(s.frc) || !(s.freeMph > 0) || s.confidence < 0.5) continue;
       good.push(s.closed ? { ...s, mph: 0 } : s);
@@ -57,8 +56,6 @@ for (const [region, points] of Object.entries(POINTS)) {
 
 const out = { updated: new Date().toISOString(), source: "TomTom", regions };
 console.log(JSON.stringify(out));
-if (!check) {
-  mkdirSync("the405", { recursive: true });
-  writeFileSync("the405/live.json", JSON.stringify(out) + "\n");
-}
+mkdirSync("the405", { recursive: true });
+writeFileSync("the405/live.json", JSON.stringify(out) + "\n");
 if (Object.keys(regions).length === 0) { console.error(`No live traffic at all (${failures} failed requests).`); process.exit(1); }
