@@ -1,4 +1,4 @@
-# Publishes the LOVE405 website (privacy policy) and, every 15 minutes, 405 Live's traffic file (the405/live.json).
+# Publishes The Future Mill LLC website (privacy policy) and, every 15 minutes, 405 Live's traffic file (the405/live.json).
 # The TomTom key lives in this repository's Actions secrets as TOMTOM_KEY; without it the site still publishes.
 name: Publish site and 405 Live traffic
 
