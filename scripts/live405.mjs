@@ -12,15 +12,16 @@
 
 import { mkdirSync, writeFileSync } from "node:fs";
 
-// Spots on the 405 itself, away from interchanges, two or three per stretch of the game's map.
+// Spots on the 405 itself, two or three per stretch of the game's map, snapped onto the freeway's exact path
+// (OpenStreetMap, via an OSRM route along the I 405) so TomTom reads the freeway, not a street beside it.
 const POINTS = {
-  valley: [[34.2410, -118.4728], [34.2010, -118.4710], [34.1730, -118.4690]],
-  pass: [[34.1186, -118.4757], [34.0950, -118.4740]],
-  westside: [[34.0480, -118.4445], [34.0150, -118.4150]],
-  lax: [[33.9600, -118.3790], [33.9300, -118.3690]],
-  southBay: [[33.8860, -118.3520], [33.8580, -118.3050]],
-  longBeach: [[33.8300, -118.2200], [33.8150, -118.1430]],
-  oc: [[33.7330, -117.9900], [33.6930, -117.9200], [33.6620, -117.8050]],
+  valley: [[34.24271, -118.47311], [34.20094, -118.47363], [34.17441, -118.46783]],
+  pass: [[34.12144, -118.47935], [34.09478, -118.47646]],
+  westside: [[34.04681, -118.44672], [34.01259, -118.41897]],
+  lax: [[33.96023, -118.36944], [33.93071, -118.36853]],
+  southBay: [[33.88484, -118.35300], [33.85974, -118.30505]],
+  longBeach: [[33.82518, -118.21998], [33.80284, -118.13612]],
+  oc: [[33.73278, -117.98979], [33.69054, -117.92305], [33.66463, -117.80465]],
 };
 
 const key = process.env.TOMTOM_KEY;
