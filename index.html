@@ -3,25 +3,75 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>The Future Mill LLC</title>
-<meta name="description" content="Games by The Future Mill LLC, makers of The 405.">
+<title>The 405 · The Future Mill LLC</title>
+<meta name="description" content="The 405: the world's slowest racing game. A comic driving and traffic-jam puzzle game set on LA's most famous freeway, for iPhone.">
+<link rel="icon" href="the405/img/icon.png">
 <style>
-  :root { --ink: #2a1f1a; --paper: #f3e6c4; --accent: #d9622b; --muted: #6b5a4a; }
-  @media (prefers-color-scheme: dark) { :root { --ink: #f3e6c4; --paper: #1d1612; --accent: #f08a4b; --muted: #c9b9a0; } }
+  @font-face { font-family: "Chango"; src: url("fonts/Chango-Regular.ttf") format("truetype"); font-display: swap; }
+  :root { --ink: #2a1f1a; --paper: #f3e6c4; --card: #fbf5e6; --accent: #d9622b; --teal: #1f5f61; --muted: #6b5a4a; --rule: #e2d3ae; }
+  @media (prefers-color-scheme: dark) {
+    :root { --ink: #f3e6c4; --paper: #1d1612; --card: #2a1f1a; --accent: #f08a4b; --teal: #3fb8af; --muted: #c9b9a0; --rule: #4a3a30; }
+  }
+  * { box-sizing: border-box; }
   body { margin: 0; background: var(--paper); color: var(--ink); font: 17px/1.6 -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif; }
-  main { max-width: 720px; margin: 0 auto; padding: 48px 16px; }
-  h1 { font-size: 2.4rem; margin: 0; color: var(--accent); }
-  p { color: var(--muted); }
+  .hero { display: block; width: 100%; aspect-ratio: 1920 / 823; object-fit: cover; background: #2b7b78; }
+  main { max-width: 760px; margin: 0 auto; padding: 32px 16px 48px; }
+  h1, h2 { font-family: "Chango", -apple-system, sans-serif; font-weight: 400; letter-spacing: 0.01em; }
+  h1 { font-size: 2rem; line-height: 1.15; margin: 0; color: var(--accent); }
+  h2 { font-size: 1.25rem; margin: 40px 0 8px; color: var(--teal); }
+  .app { display: flex; gap: 16px; align-items: center; margin-bottom: 20px; }
+  .app img { width: 84px; height: 84px; border-radius: 19px; flex: none; box-shadow: 0 4px 12px rgba(42, 31, 26, 0.25); }
+  .tag { margin: 4px 0 0; color: var(--muted); font-weight: 600; }
+  .store { display: inline-block; margin-top: 8px; padding: 10px 20px; border-radius: 999px; background: var(--ink); color: var(--paper); font-weight: 700; text-decoration: none; }
+  .shots { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; margin: 24px 0 8px; }
+  .shots img { width: 100%; border-radius: 14px; display: block; box-shadow: 0 4px 12px rgba(42, 31, 26, 0.2); }
+  ul { padding-left: 1.2em; }
+  li { margin: 4px 0; }
+  .card { background: var(--card); border: 1px solid var(--rule); border-radius: 12px; padding: 4px 20px; }
   a { color: var(--accent); }
+  footer { margin-top: 48px; padding-top: 12px; border-top: 1px solid var(--rule); color: var(--muted); font-size: 0.9rem; }
+  @media (max-width: 520px) { .shots { grid-template-columns: repeat(3, 1fr); gap: 8px; } h1 { font-size: 1.6rem; } }
 </style>
 </head>
 <body>
+<img class="hero" src="the405/img/header.jpg" alt="The 405 shield over a jammed freeway at sunset, with the words The World's Slowest Racing Game">
 <main>
-  <h1>The Future Mill LLC</h1>
-  <p>Games for iPhone.</p>
-  <h2>The 405</h2>
-  <p>A comic driving and traffic-jam puzzle game set on LA's famous freeway, for iPhone.</p>
-  <p><a href="the405/privacy.html">Privacy policy</a> · <a href="mailto:thefuturemillllc@gmail.com">Contact</a></p>
+  <div class="app">
+    <img src="the405/img/icon.png" alt="The 405 app icon">
+    <div>
+      <h1>The 405</h1>
+      <p class="tag">The world's slowest racing game. For iPhone.</p>
+    </div>
+  </div>
+  <p>A comic driving and traffic-jam puzzle game set on Los Angeles's most famous freeway. Your car speeds up on its own: you steer, brake and honk. Hit the traffic and the road turns into a sliding-car puzzle. Shuffle the stuck cars until yours can drive out, then get back on the road.</p>
+  <span class="store">Coming soon to the App Store</span>
+
+  <div class="shots">
+    <img src="the405/img/drive.jpg" alt="Driving through traffic with a sig alert warning">
+    <img src="the405/img/jam.jpg" alt="A traffic-jam sliding puzzle">
+    <img src="the405/img/map.jpg" alt="The map of levels down the 405">
+  </div>
+
+  <h2>What's on the road</h2>
+  <ul>
+    <li>100 levels on the real 405, from Sylmar to Irvine, southbound or northbound</li>
+    <li>Self-driving sleepers, lowriders, lifted trucks, lane-splitting motorcycles and road ragers</li>
+    <li>Dawn, rush hour and late night, with June gloom fog, Santa Ana winds and the odd drop of rain</li>
+    <li>Seven speed runs with Game Center leaderboards</li>
+    <li>Driving and puzzle difficulty set separately, from ages 4 and up to 120 mph</li>
+    <li>Free to play with ads; optional Ad-Free, 405 Live and tokens</li>
+  </ul>
+
+  <h2>Support</h2>
+  <div class="card">
+    <p>Questions, a bug, or a purchase that didn't arrive? Email us at <a href="mailto:thefuturemillllc@gmail.com">thefuturemillllc@gmail.com</a> and say which iPhone and iOS version you have.</p>
+    <p>Bought Ad-Free or 405 Live on another iPhone? Open the shop in the game and tap <b>Restore</b>.</p>
+  </div>
+
+  <footer>
+    <p>© 2026 The Future Mill LLC · <a href="the405/privacy.html">Privacy policy</a> · <a href="mailto:thefuturemillllc@gmail.com">Contact</a></p>
+    <p>The 405 is not affiliated with Caltrans, the State of California or any company named in the game.</p>
+  </footer>
 </main>
 </body>
 </html>
